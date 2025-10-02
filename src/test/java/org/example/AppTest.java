@@ -13,7 +13,7 @@ public class AppTest {
     static void initSession() {
         jsessionId =
                 given()
-                        .baseUri("https://drt-chameleon.ibs.ru")
+                        .baseUri("http://localhost:8080")
                         .when()
                         .get("/food")
                         .then()
@@ -27,7 +27,7 @@ public class AppTest {
     @Test
     void testAddProduct() {
         given()
-                .baseUri("https://drt-chameleon.ibs.ru")
+                .baseUri("http://localhost:8080")
                 .cookie("JSESSIONID", jsessionId)
                 .contentType("application/json")
                 .accept("application/json")
@@ -42,7 +42,7 @@ public class AppTest {
     @Test
     void testGetAllProducts() {
         given()
-                .baseUri("https://drt-chameleon.ibs.ru")
+                .baseUri("http://localhost:8080")
                 .cookie("JSESSIONID", jsessionId)
                 .accept("application/json")
                 .when()
@@ -52,3 +52,4 @@ public class AppTest {
                 .log().all();
     }
 }
+
